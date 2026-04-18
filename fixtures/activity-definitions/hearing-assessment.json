@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-hearing-assessment",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-hearing-assessment",
+  "status": "active",
+  "name": "T21HearingAssessment",
+  "title": "Objective Hearing Assessment",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "32437-6",
+        "display": "Audiology study"
+      }
+    ],
+    "text": "Hearing Assessment"
+  },
+  "description": "Order an objective hearing assessment (e.g., ABR or OAE) for Trisomy 21 patients within the first 6 months of life."
+}

@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-antithyroid-antibody-measurement",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-antithyroid-antibody-measurement",
+  "status": "active",
+  "name": "T21AntithyroidAntibodyMeasurement",
+  "title": "Anti-Thyroid Antibody Measurement",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8099-4",
+        "display": "Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
+      }
+    ],
+    "text": "Anti-Thyroid Peroxidase Antibody"
+  },
+  "description": "Order anti-thyroid antibody panel to screen for thyroid autoimmunity in Trisomy 21 patients."
+}

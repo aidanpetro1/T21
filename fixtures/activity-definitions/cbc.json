@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-cbc",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-cbc",
+  "status": "active",
+  "name": "T21CBC",
+  "title": "Complete Blood Count (CBC)",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "58410-2",
+        "display": "CBC panel - Blood by Automated count"
+      }
+    ],
+    "text": "CBC"
+  },
+  "description": "Order a complete blood count (CBC) for Trisomy 21 patients by day 3 of life to screen for hematologic abnormalities including transient abnormal myelopoiesis (TAM)."
+}

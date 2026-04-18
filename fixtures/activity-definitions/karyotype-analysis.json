@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-karyotype-analysis",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-karyotype-analysis",
+  "status": "active",
+  "name": "T21KaryotypeAnalysis",
+  "title": "Karyotype Analysis",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "117010004",
+        "display": "Karyotype determination"
+      }
+    ],
+    "text": "Karyotype Analysis"
+  },
+  "description": "Order chromosomal karyotype analysis to confirm Trisomy 21 diagnosis when not already established by a prior prenatal procedure (CVS or amniocentesis) with a karyotype result."
+}

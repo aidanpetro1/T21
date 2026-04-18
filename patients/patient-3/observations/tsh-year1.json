@@ -1,0 +1,25 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-tsh-year1",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "11580-8",
+        "display": "Thyrotropin [Units/volume] in Serum or Plasma"
+      }
+    ],
+    "text": "TSH"
+  },
+  "subject": {
+    "reference": "Patient/3"
+  },
+  "effectiveDateTime": "2022-04-10",
+  "valueQuantity": {
+    "value": 3.2,
+    "unit": "mIU/L",
+    "system": "http://unitsofmeasure.org",
+    "code": "m[IU]/L"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-tte-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-tte-schedule",
+  "status": "active",
+  "name": "AAPT21TTESchedule",
+  "title": "AAP T21 Transthoracic Echocardiogram Schedule",
+  "description": "Transthoracic echocardiogram for Trisomy 21 patients per AAP guidelines. All T21 patients should receive a TTE within the first month of life to evaluate for congenital heart defects.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "newborn-tte",
+      "title": "Newborn TTE",
+      "description": "Transthoracic echocardiogram within the first month of life.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-tte-echocardiogram",
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 1,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    }
+  ]
+}

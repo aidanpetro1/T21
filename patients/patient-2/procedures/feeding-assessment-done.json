@@ -1,0 +1,19 @@
+{
+  "resourceType": "Procedure",
+  "id": "proc-feeding-assessment-2",
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "710849003",
+        "display": "Assessment of feeding"
+      }
+    ],
+    "text": "Feeding Assessment"
+  },
+  "subject": {
+    "reference": "Patient/2"
+  },
+  "occurrenceDateTime": "2026-01-10"
+}

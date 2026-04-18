@@ -1,0 +1,28 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-hypotonia-3",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "398152000",
+        "display": "Hypotonia"
+      }
+    ],
+    "text": "Marked Hypotonia"
+  },
+  "subject": {
+    "reference": "Patient/3"
+  },
+  "effectiveDateTime": "2021-05-10",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24484000",
+        "display": "Severe"
+      }
+    ]
+  }
+}

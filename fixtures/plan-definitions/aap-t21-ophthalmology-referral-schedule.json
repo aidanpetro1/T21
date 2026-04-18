@@ -1,0 +1,56 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-ophthalmology-referral-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-ophthalmology-referral-schedule",
+  "status": "active",
+  "name": "AAPT21OphthalmologyReferralSchedule",
+  "title": "AAP T21 Ophthalmology Referral Schedule",
+  "description": "Ophthalmology referral for Trisomy 21 patients per AAP guidelines. All T21 patients should be referred to ophthalmology by 6 months of age.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "infant-ophthalmology-referral",
+      "title": "Infant Ophthalmology Referral",
+      "description": "Referral to ophthalmology by 6 months of age.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-ophthalmology-referral",
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 6,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    }
+  ]
+}

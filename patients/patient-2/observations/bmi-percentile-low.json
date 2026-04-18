@@ -1,0 +1,25 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-bmi-percentile-2",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "59576-9",
+        "display": "Body mass index (BMI) [Percentile] Per age and sex"
+      }
+    ],
+    "text": "BMI Percentile"
+  },
+  "subject": {
+    "reference": "Patient/2"
+  },
+  "effectiveDateTime": "2025-12-15",
+  "valueQuantity": {
+    "value": 3.2,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  }
+}

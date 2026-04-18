@@ -1,0 +1,28 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-karyotype-3",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "29770-5",
+        "display": "Karyotype [Identifier] in Bld or Tiss Nominal"
+      }
+    ],
+    "text": "Karyotype"
+  },
+  "subject": {
+    "reference": "Patient/3"
+  },
+  "effectiveDateTime": "2021-04-20",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "41040004",
+        "display": "Complete trisomy 21 syndrome"
+      }
+    ]
+  }
+}

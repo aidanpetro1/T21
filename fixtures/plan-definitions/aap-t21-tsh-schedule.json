@@ -1,0 +1,182 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-tsh-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-tsh-schedule",
+  "status": "active",
+  "name": "AAPT21TSHSchedule",
+  "title": "AAP T21 TSH Screening Schedule",
+  "description": "TSH screening protocol for Trisomy 21 patients per AAP guidelines. Default annual cadence switches immediately to semi-annual (every 6 months) upon detection of anti-thyroid antibodies (SNOMED 165775009). All recurring screens use a +/-1 month window and stop at age 21.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "newborn-tsh",
+      "title": "Newborn TSH Screen",
+      "description": "Initial TSH screen within the first month of life.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-tsh-screening",
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 1,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    },
+    {
+      "id": "six-month-tsh",
+      "title": "6-Month TSH Screen",
+      "description": "TSH screen at approximately 6 months of age.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-tsh-screening",
+      "relatedAction": [
+        {
+          "targetId": "newborn-tsh",
+          "relationship": "after",
+          "offsetRange": {
+            "low": {
+              "value": 5,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 7,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "annual-tsh",
+      "title": "Annual TSH Screen",
+      "description": "Annual TSH screen when anti-thyroid antibodies are not detected.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-tsh-screening",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%observations.where(code.coding.where(system='http://loinc.org' and code='8099-4').exists() and (valueQuantity.value > 9.0 or interpretation.coding.where(code='POS').exists())).empty()",
+            "description": "Applies when no positive anti-thyroid antibody result exists. Checks for LOINC 8099-4 observations with either valueQuantity > 9.0 IU/mL or a POS interpretation code. If no such positive result is found, annual screening applies."
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "newborn-tsh",
+          "relationship": "after",
+          "offsetRange": {
+            "low": {
+              "value": 11,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 13,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "boundsDuration": {
+            "value": 252,
+            "unit": "months",
+            "system": "http://unitsofmeasure.org",
+            "code": "mo"
+          },
+          "frequency": 1,
+          "period": 11,
+          "periodMax": 13,
+          "periodUnit": "mo"
+        }
+      }
+    },
+    {
+      "id": "semiannual-tsh",
+      "title": "Semi-Annual TSH Screen (Antibody Positive)",
+      "description": "Every-6-month TSH screen when anti-thyroid antibodies have been detected.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-tsh-screening",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%observations.where(code.coding.where(system='http://loinc.org' and code='8099-4').exists() and (valueQuantity.value > 9.0 or interpretation.coding.where(code='POS').exists())).exists()",
+            "description": "Applies when a positive anti-thyroid antibody result exists. Checks for LOINC 8099-4 observations with either valueQuantity > 9.0 IU/mL or a POS interpretation code. Switches to semi-annual TSH screening immediately upon positive detection."
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "targetId": "newborn-tsh",
+          "relationship": "after",
+          "offsetRange": {
+            "low": {
+              "value": 5,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 7,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "boundsDuration": {
+            "value": 252,
+            "unit": "months",
+            "system": "http://unitsofmeasure.org",
+            "code": "mo"
+          },
+          "frequency": 1,
+          "period": 5,
+          "periodMax": 7,
+          "periodUnit": "mo"
+        }
+      }
+    }
+  ]
+}

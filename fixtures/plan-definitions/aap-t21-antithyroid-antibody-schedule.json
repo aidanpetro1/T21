@@ -1,0 +1,66 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-antithyroid-antibody-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-antithyroid-antibody-schedule",
+  "status": "active",
+  "name": "AAPT21AntithyroidAntibodySchedule",
+  "title": "AAP T21 Anti-Thyroid Antibody Screening Schedule",
+  "description": "Anti-thyroid antibody screening for Trisomy 21 patients per AAP guidelines. At least once in the first year of life. A positive result triggers a cadence change in the TSH screening schedule (see aap-t21-tsh-schedule).",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "first-year-antithyroid-antibody",
+      "title": "First-Year Anti-Thyroid Antibody Screen",
+      "description": "Anti-thyroid antibody measurement at least once within the first year of life, unless a result already exists.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-antithyroid-antibody-measurement",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%observations.where(code.coding.where(system='http://loinc.org' and code='8099-4').exists()).empty()",
+            "description": "Applies when no prior anti-thyroid antibody Observation (LOINC 8099-4) exists. If an antibody result is already on file, the screening is not needed."
+          }
+        }
+      ],
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 12,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-hearing-assessment-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-hearing-assessment-schedule",
+  "status": "active",
+  "name": "AAPT21HearingAssessmentSchedule",
+  "title": "AAP T21 Hearing Assessment Schedule",
+  "description": "Objective hearing assessment (e.g., ABR or OAE) for Trisomy 21 patients per AAP guidelines. All T21 patients should receive an objective hearing assessment within the first 6 months of life.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "newborn-hearing-assessment",
+      "title": "Newborn Hearing Assessment",
+      "description": "Objective hearing assessment (ABR or OAE) within the first 6 months of life.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-hearing-assessment",
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 6,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    }
+  ]
+}

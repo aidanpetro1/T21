@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-ophthalmology-referral",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-ophthalmology-referral",
+  "status": "active",
+  "name": "T21OphthalmologyReferral",
+  "title": "Ophthalmology Referral",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "183524004",
+        "display": "Referral to ophthalmology service"
+      }
+    ],
+    "text": "Ophthalmology Referral"
+  },
+  "description": "Refer Trisomy 21 patients to ophthalmology by 6 months of age to screen for congenital cataracts, strabismus, nystagmus, and refractive errors."
+}

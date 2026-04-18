@@ -1,0 +1,52 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-feeding-assessment-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-feeding-assessment-schedule",
+  "status": "active",
+  "name": "AAPT21FeedingAssessmentSchedule",
+  "title": "AAP T21 Feeding Assessment Schedule",
+  "description": "Feeding assessment or video swallow study for Trisomy 21 patients per AAP guidelines. Indicated when marked hypotonia or underweight status (below 5th percentile weight-for-length or BMI) is documented. No specific time window — applies whenever the clinical findings are present.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "feeding-assessment-triggered",
+      "title": "Feeding Assessment / Video Swallow Study",
+      "description": "Order feeding assessment when marked hypotonia or underweight is documented.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-feeding-assessment",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%observations.where(code.coding.where(system='http://snomed.info/sct' and code='398152000').exists()).exists() or %observations.where(code.coding.where(system='http://loinc.org' and code='77606-2').exists() and valueQuantity.value < 5).exists() or %observations.where(code.coding.where(system='http://loinc.org' and code='59576-9').exists() and valueQuantity.value < 5).exists()",
+            "description": "Applies when any of the following observations exist: marked hypotonia (SNOMED 398152000), weight-for-length percentile below 5th (LOINC 77606-2 with value < 5), or BMI percentile below 5th (LOINC 59576-9 with value < 5). If any of these findings are documented, a feeding assessment is indicated."
+          }
+        }
+      ]
+    }
+  ]
+}

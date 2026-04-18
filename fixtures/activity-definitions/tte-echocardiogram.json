@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-tte-echocardiogram",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-tte-echocardiogram",
+  "status": "active",
+  "name": "T21TTEEchocardiogram",
+  "title": "Transthoracic Echocardiogram",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34552-0",
+        "display": "2D echocardiogram panel"
+      }
+    ],
+    "text": "Echocardiogram (TTE)"
+  },
+  "description": "Order a transthoracic echocardiogram to evaluate for congenital heart defects in Trisomy 21 patients."
+}
