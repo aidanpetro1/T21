@@ -1,0 +1,96 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-cbc-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-cbc-schedule",
+  "status": "active",
+  "name": "AAPT21CBCSchedule",
+  "title": "AAP T21 CBC Schedule",
+  "description": "Complete blood count for Trisomy 21 patients per AAP guidelines. Initial CBC by day 3 of life, then annually through age 21 to monitor for hematologic abnormalities.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "newborn-cbc",
+      "title": "Newborn CBC",
+      "description": "Complete blood count by day 3 of life.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-cbc",
+      "timingRange": {
+        "low": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 1,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    },
+    {
+      "id": "annual-cbc",
+      "title": "Annual CBC",
+      "description": "Annual complete blood count to monitor for hematologic abnormalities.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-cbc",
+      "relatedAction": [
+        {
+          "targetId": "newborn-cbc",
+          "relationship": "after",
+          "offsetRange": {
+            "low": {
+              "value": 11,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 13,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "boundsDuration": {
+            "value": 252,
+            "unit": "months",
+            "system": "http://unitsofmeasure.org",
+            "code": "mo"
+          },
+          "frequency": 1,
+          "period": 11,
+          "periodMax": 13,
+          "periodUnit": "mo"
+        }
+      }
+    }
+  ]
+}

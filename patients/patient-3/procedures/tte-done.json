@@ -1,0 +1,19 @@
+{
+  "resourceType": "Procedure",
+  "id": "proc-tte-3",
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34552-0",
+        "display": "2D echocardiogram panel"
+      }
+    ],
+    "text": "Echocardiogram (TTE)"
+  },
+  "subject": {
+    "reference": "Patient/3"
+  },
+  "occurrenceDateTime": "2021-05-01"
+}

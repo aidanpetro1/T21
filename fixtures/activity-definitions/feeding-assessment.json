@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-feeding-assessment",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-feeding-assessment",
+  "status": "active",
+  "name": "T21FeedingAssessment",
+  "title": "Feeding Assessment / Video Swallow Study",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "710849003",
+        "display": "Assessment of feeding"
+      }
+    ],
+    "text": "Feeding Assessment"
+  },
+  "description": "Order a feeding assessment or video swallow study for Trisomy 21 patients presenting with marked hypotonia or underweight status (below 5th percentile weight-for-length or BMI)."
+}

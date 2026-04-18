@@ -1,0 +1,20 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-cbc-2",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "58410-2",
+        "display": "CBC panel - Blood by Automated count"
+      }
+    ],
+    "text": "CBC"
+  },
+  "subject": {
+    "reference": "Patient/2"
+  },
+  "effectiveDateTime": "2025-06-17",
+  "valueString": "Within normal limits"
+}

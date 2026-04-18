@@ -1,0 +1,66 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "aap-t21-karyotype-schedule",
+  "url": "https://t21app.example.org/fhir/PlanDefinition/aap-t21-karyotype-schedule",
+  "status": "active",
+  "name": "AAPT21KaryotypeSchedule",
+  "title": "AAP T21 Karyotype Confirmation Schedule",
+  "description": "Karyotype analysis to confirm Trisomy 21 diagnosis per AAP guidelines. Should be performed prenatally where possible; if no prior karyotype result documenting Trisomy 21 exists, a single karyotype analysis should be performed at any point from the prenatal period through age 21.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "41040004",
+            "display": "Complete trisomy 21 syndrome"
+          }
+        ]
+      }
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "protocol"
+      }
+    ]
+  },
+  "action": [
+    {
+      "id": "confirmatory-karyotype",
+      "title": "Confirmatory Karyotype Analysis",
+      "description": "Order a karyotype analysis if no prior karyotype result documenting Trisomy 21 is recorded.",
+      "definitionCanonical": "https://t21app.example.org/fhir/ActivityDefinition/t21-karyotype-analysis",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%observations.where(code.coding.where(system='http://loinc.org' and code='29770-5').exists() and valueCodeableConcept.coding.where(system='http://snomed.info/sct' and code='41040004').exists()).empty()",
+            "description": "Applies when no prior karyotype Observation (LOINC 29770-5) with a value of Complete trisomy 21 syndrome (SNOMED 41040004) is recorded. If no such positive karyotype is found, a confirmatory karyotype is scheduled."
+          }
+        }
+      ],
+      "timingRange": {
+        "low": {
+          "value": -9,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        },
+        "high": {
+          "value": 0,
+          "unit": "months",
+          "system": "http://unitsofmeasure.org",
+          "code": "mo"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "t21-early-intervention-referral",
+  "url": "https://t21app.example.org/fhir/ActivityDefinition/t21-early-intervention-referral",
+  "status": "active",
+  "name": "T21EarlyInterventionReferral",
+  "title": "Early Intervention Referral",
+  "kind": "ServiceRequest",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "306206005",
+        "display": "Referral to rehabilitation service"
+      }
+    ],
+    "text": "Early Intervention Referral"
+  },
+  "description": "Refer Trisomy 21 patients to early intervention services for speech, fine motor, or gross motor therapy before 3 years of age."
+}

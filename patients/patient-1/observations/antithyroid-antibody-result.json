@@ -1,0 +1,25 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-antibody-1",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8099-4",
+        "display": "Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
+      }
+    ],
+    "text": "Anti-Thyroid Peroxidase Antibody"
+  },
+  "subject": {
+    "reference": "Patient/1"
+  },
+  "effectiveDateTime": "2025-09-15",
+  "valueQuantity": {
+    "value": 45.0,
+    "unit": "IU/mL",
+    "system": "http://unitsofmeasure.org",
+    "code": "[IU]/mL"
+  }
+}
